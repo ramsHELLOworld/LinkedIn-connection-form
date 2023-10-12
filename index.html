@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connection form</title>
+</head>
+<body>
+  <div>
+    <h1>LinkedIn connection Form</h1>
+    <form id="avengersForm">
+      Your Name : <input type="text" id="userName" name="userName" placeholder="User Name"><br><br>
+      Are you in LinkedIn: 
+      <input type="radio" id="areYouInLinkedIn" name="linkedin" value="yes">Yes 
+      <input type="radio" id="areYouInLinkedIn" name="linkedin" value="no">No<br><br>
 
+      <input type="checkbox" id="feedback" name="letter" value="likeTo"> I like to create a connection with you on LinkedIn<br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <script>
+      document.getElementById("avengersForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      const userName = document.getElementById("userName").value;
+      const areYouInLinkedIn = document.querySelector('input[name="linkedin"]:checked').value;
+      const feedback = document.getElementById("feedback").value;
+  
+      const emailBody = `User Name: ${userName}\nAre you in LinkedIn: ${areYouInLinkedIn}\nAre you intrested for a connection: ${feedback}`;
+  
+      window.location.href = `mailto:karthikram1441@gmail.com?subject=LinkedIn Form Submittion&body=${encodeURIComponent(emailBody)}`;
+  });
+  </script>
+  </div>
+  
+</body>
+</html>
